@@ -1,0 +1,35 @@
+
+
+void setup() 
+{ 
+  Serial.begin( 115200 ); 
+
+for ( int b=2; b<22; b++) {
+     pinMode(b, INPUT);
+  }
+
+  for ( int b=22; b<54; b++) {
+     pinMode(b, INPUT);
+  }
+}
+ 
+void loop() 
+{
+  // Read from two analog pins and put a space between values.
+  for ( int i=0; i<16; i++) {
+    Serial.print( analogRead(i) );
+    Serial.print(' ');
+  }
+
+  for ( int b=2; b<54; b++) {
+   Serial.print( digitalRead(b) );
+    Serial.print(' ');
+  }
+
+  
+  
+  
+  Serial.println();
+
+  delay( 100 );  // Delay a bit.
+}
